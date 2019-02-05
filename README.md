@@ -10,7 +10,7 @@
 * チャット更新
 
 
-## membersテーブル
+## messagesテーブル
 ------------------------
 
 |Column|Type|Options|
