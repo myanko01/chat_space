@@ -15,7 +15,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|index|
+|body|text|
 |image|string|
 |user_id|integer|foreign_key: true|
 |group_id|integer|foreign_key: true|
@@ -30,8 +30,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false,index|
-|email|string|null: false,index,unique|
+|name|string|null: false|
+|email|string|null: false,unique|
 |password|string|null: false|
 
 * Association
