@@ -1,0 +1,62 @@
+.chatspace
+  .chat-side
+    .chat-side__user
+      %p name
+      .chat-side__user__actions
+        = link_to '#' do
+          %i.fa.fa-cog
+        = link_to '#' do
+          %i.fa.fa-pencil-square-o
+    .chat-side__groups--name
+      %h5 sampleグループ1
+      .stat
+        まだメッセージはありません。
+    .chat-side__groups--name
+      %h5 sampleグループ2
+      .stat
+        まだメッセージはありません。
+
+  .chat-main
+    .chat-main__header
+      .chat-main__header--left
+        %h2 sample
+        %p.group-members Members:name1
+      .chat-main__header--right
+        %a.edit-botton Edit
+
+    .chat-main__body
+      %ul.chat-contents
+        %li.chat-content
+          .chat-content__header
+            .chat-content__name
+              %p name1
+            .chat-content__time
+              %p 2019/02/09 21:59:59
+            .chat-content__message
+              %p とくになし
+        %li.chat-content
+          .chat-content__header
+            .chat-content__name
+              %p name1
+            .chat-content__time
+              %p 2019/02/09 22:00:01
+            .chat-content__message
+              %p とくになし
+
+    .chat-main__footer
+      .chat-main__footer__messagebody
+        .chat-main__footer__messagebody__text
+          %textarea{ placeholder: 'type a message' }
+        .chat-main__messagebody__image
+          %i.fa.fa-picture-o
+      .chat-main__footer__send
+        %a.send-btn Send
+
+
+
+
+
+
+
+
+
