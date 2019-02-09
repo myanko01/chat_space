@@ -4,15 +4,15 @@
       %p name
       .chat-side__user__actions
         = link_to '#' do
-          %i.fa.fa-cog
+          = fa_icon "pencil-square-o"
         = link_to '#' do
-          %i.fa.fa-pencil-square-o
+          = fa_icon "cog"
     .chat-side__groups--name
-      %h5 sampleグループ1
+      %h6 sampleグループ1
       .stat
         まだメッセージはありません。
     .chat-side__groups--name
-      %h5 sampleグループ2
+      %h6 sampleグループ2
       .stat
         まだメッセージはありません。
 
@@ -48,6 +48,6 @@
         .chat-main__footer__messagebody__text
           %textarea{ placeholder: 'type a message' }
         .chat-main__messagebody__image
-          %i.fa.fa-picture-o
+          = fa_icon "picture-o"
       .chat-main__footer__send
         %a.send-btn Send
