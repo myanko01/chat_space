@@ -1,0 +1,15 @@
+.chat-side
+  .chat-side__user
+    %p
+      = current_user.name
+    .chat-side__user__actions
+      = link_to new_group_path do
+        = fa_icon "pencil-square-o"
+      = link_to edit_user_path(current_user) do
+        = fa_icon 'cog'
+  .chat-side__groups--name
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        = group.name
+        .stat
+          まだメッセージはありません。
