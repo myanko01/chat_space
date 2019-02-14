@@ -1,5 +1,6 @@
 .chatspace
   = render 'shared/side_bar'
+
   .chat-main
     .chat-main__header
       .chat-main__header--left
@@ -10,28 +11,14 @@
 
     .chat-main__body
       %ul.chat-contents
-        %li.chat-content
-          .chat-content__header
-            .chat-content__name
-              %p name1
-            .chat-content__time
-              %p 2019/02/09 21:59:59
-            .chat-content__message
-              %p とくになし
-        %li.chat-content
-          .chat-content__header
-            .chat-content__name
-              %p name1
-            .chat-content__time
-              %p 2019/02/09 22:00:01
-            .chat-content__message
-              %p とくになし
 
     .chat-main__footer
       .chat-main__footer__messagebody
-        .chat-main__footer__messagebody__text
-          %textarea{ placeholder: 'type a message' }
-        .chat-main__messagebody__image
-          = fa_icon "picture-o"
-      .chat-main__footer__send
-        %a.send-btn Send
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'chat-main__footer__messagebody__text', placeholder: 'type a message'
+          .chat-main__messagebody__image
+            = f.label :image do
+              = fa_icon 'picture-o', class: 'fa'
+              = f.file_field :image, class: 'hide'
+          .chat-main__footer__send
+            = f.submit 'Send', class: 'send-btn'

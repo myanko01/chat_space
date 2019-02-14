@@ -87,7 +87,6 @@
     &__messagebody{
        position: absolute;
         &__text{
-          textarea {
             height: 50px;
             width: calc(100vw - 495px);
             line-height: 50px;
@@ -96,22 +95,27 @@
             background-color: $white;
             box-sizing: border-box;
             padding:0 10px 0;
-          }
+            float:left;
         }
-          .fa {
-            font-size: 1.3rem;
+          .chat-main__messagebody__image{
             position: absolute;
+            font-size: 1.3rem;
             right: 0px;
             padding:10px;
             background-color: $white;
-            bottom: 15px;
+            bottom: 4px;
             box-sizing: border-box;
             line-height: 10px;
-          }
+        }
+        .hide{
+          display:none
+        }
+
     }
 
     &__send {
-      .send-btn {
+      .send-btn{
+        position: absolute;
         display: inline-block;
         float: right;
         background-color: $light_blue;
@@ -121,7 +125,7 @@
         font-size: 17px;
         text-align: center;
         color: $white;
-        margin: 0px 75px 50px 0px
+        margin:0px 0px 0px 15px;
       }
     }
   }
