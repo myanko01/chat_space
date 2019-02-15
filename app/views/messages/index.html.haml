@@ -4,13 +4,18 @@
   .chat-main
     .chat-main__header
       .chat-main__header--left
-        %h2 sample
-        %p.group-members Members:name1
+        %h2
+          = @group.name
+        %p.group-members
+          Members:
+          - @group.users.each do |user|
+            =user.name
       .chat-main__header--right
-        %a.edit-botton Edit
+        = link_to 'Edit', edit_group_path(params[:group_id]),method: :get, class: 'edit-botton'
 
     .chat-main__body
       %ul.chat-contents
+        = render partial: 'shared/message', collection: @messages
 
     .chat-main__footer
       .chat-main__footer__messagebody
