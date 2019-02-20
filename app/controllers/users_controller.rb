@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").delete(:current_user)
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(:current_user)
     respond_to do |format|
       format.html
       format.json

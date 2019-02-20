@@ -1,4 +1,4 @@
-%ul.chat-contents{:id => "data-id"}
+%li.chat-content{data: {id:"#{message.id}"}}
   .chat-content__header
     .chat-content__name
       = message.user.name
@@ -8,4 +8,3 @@
       - if message.content.present?
         = message.content
       = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
-

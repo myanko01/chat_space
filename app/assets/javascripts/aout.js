@@ -1,8 +1,7 @@
 $(function(){
   function buildHTML(message){
     var imagehtml = message.image == null ? "" : `<img src="${message.image}" class="lower-message__image">`
-    var html = `<ul class="chat-contents" id="${user.id}" >
-                    <li id="chat-content">
+    var html = `<li class="chat-content", data-id=${message.id}>
                     <div class="chat-content__header">
                       <div class="chat-content__name">
                       ${message.user_name}
@@ -18,7 +17,7 @@ $(function(){
     return html;
   }
 
-$(function(){
+
   setInterval(update, 5000);
     function update(){
         var last_id = $('#new_message').data('id');
@@ -37,11 +36,10 @@ $(function(){
         });
       })
       .fail(function(data){
-        alert('自動更新に失敗しました');
+      alert('自動更新に失敗しました');
       });
       .always(() => {
       $("send-btn").removeAttr("disabled");
       });
     }
-});
 });
