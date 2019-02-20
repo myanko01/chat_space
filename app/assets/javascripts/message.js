@@ -29,15 +29,16 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-  });
+  })
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-contents').append(html)
       $('.chat-content').val('')
       $('.chat-content').append('');
-       $('.chat-contents').animate({scrollTop: $('.chat-contents')[0].scrollHeight}, 'fast');
+      $('.chat-contents').animate({scrollTop: $('.chat-contents')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('error');
     })
+});
 });
