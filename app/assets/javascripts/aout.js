@@ -17,27 +17,29 @@ $(function(){
     return html;
   }
 
-  $('#new_message').on('submit',function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-  })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.chat-contents').append(html)
-      $('.chat-content').val('')
-      $('.chat-content').append('');
-      $('.chat-contents').animate({scrollTop: $('.chat-contents')[0].scrollHeight}, 'fast');
-    })
-    .fail(function(){
-      alert('error');
-    })
-});
+
+  setInterval(update, 5000);
+    function update(){
+        var last_id = $('#new_message').data('id');
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: {
+          id:last_id
+        },
+        dataType: 'json'
+      })
+      .done(function(date){
+        date.forEach(function(date){
+          var html = buildHTML(date);
+          $('.chat-content').append(html);
+        });
+      })
+      .fail(function(data){
+      alert('自動更新に失敗しました');
+      });
+      .always(() => {
+      $("send-btn").removeAttr("disabled");
+      });
+    }
 });
