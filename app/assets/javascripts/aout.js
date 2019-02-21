@@ -39,7 +39,7 @@ $(function(){
       alert('自動更新に失敗しました');
       });
       .always(() => {
-      $("send-btn").removeAttr("disabled");
+      $("send-btn").removeAttr('disabled', false);
       });
     }
 });
